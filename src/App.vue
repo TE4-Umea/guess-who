@@ -14,8 +14,8 @@
 import { getCharactersFromDatabase } from "./data.js"
 
 export default {
-    async data() {
-        const characters = await getCharactersFromDatabase();
+    data() {
+        const characters = getCharactersFromDatabase();
         characters.forEach(character => {
             character.isHidden = false
             character.text = character.name.substring(0, 2)
