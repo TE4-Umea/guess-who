@@ -11,7 +11,7 @@
 </template>
 
 <script>
-const { getCharactersFromDatabase } = require("./data.js")
+import { getCharactersFromDatabase } from "./data.js"
 
 export default {
     async data() {

@@ -1,9 +1,11 @@
-const { PrismaClient } = require('@prisma/client')
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-module.exports.getCharactersFromDatabase = async () => {
+export async function getCharactersFromDatabase() {
     const characters = await prisma.character.findMany({})
     console.log(characters)
     return characters
 }
+
+getCharactersFromDatabase()
