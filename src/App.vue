@@ -13,36 +13,21 @@
 <script>
 import { getCharactersFromDatabase } from "./data.js"
 
+// just nu kan vi inte använda oss av async/await, vilket vi behöver för att hämta data från databasen(api?). 
 export default {
     data() {
-        const characters = getCharactersFromDatabase();
-        characters.forEach(character => {
+        let chars = []
+        getCharactersFromDatabase().then(data => {
+            chars = data
+            console.log(chars)
+        })
+        chars.forEach(character => {
             character.isHidden = false
-            character.text = character.name.substring(0, 2)
+            // character.text = character.name.substring(0, 2)
         })
 
-        // await fetch(`http://jupiter.umea-ntig.se:3008/api/dish/`, {
-        //     method: 'GET',
-        //     headers: {
-        //         authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJsdW5kbWFya2hqYWxtYXJAZ21haWwuY29tIiwiaWF0IjoxNzAyNDU1MTAzfQ.O9LhDq-P1jFVwDlToU8p_VUrRjsqQ60R1bybCa0B9yI',
-        //     },
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         console.log(result)
-        //         characters = result
-        //     }).catch(err => {
-        //         console.log(err)
-        //     });
-
         return {
-            characters
-            // characters: [
-            //     { name: "Leo", text: "Le", isHidden: false },
-            //     { name: "Loke", text: "Lo", isHidden: false },
-            //     { name: "Hjalmar", text: "Hj", isHidden: false },
-            //     { name: "Alexander", text: "Al", isHidden: false },
-            // ]
+            characters: chars
         };
     },
 };
