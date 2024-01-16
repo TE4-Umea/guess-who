@@ -2,7 +2,7 @@
     <div class="grid">
         <article v-for="(character, index) in characters">
             <div v-on:click="character.isHidden = !character.isHidden" v-if="!character.isHidden">
-                <img :src="character.imgSrc">
+                <img :src="character.image">
                 <p>{{ character.name }}</p>
                 <p>{{ character.text }}</p>
             </div>
@@ -10,7 +10,7 @@
             </div>
         </article>
     </div>
-    
+
     <div id="searchField">
         <input type="text" id="myInput" onkeyup="search()" placeholder="Search for questions.." />
         <ul id="myUL">
@@ -21,23 +21,24 @@
             </li>
         </ul>
     </div>
-
 </template>
 
 <script>
+import { getCharactersFromDatabase } from "./data.js"
 
 export default {
     data() {
         return {
             characters: [
-                { name: "Leo", text: "Le", imgSrc: "../src/assets/leooberg.png", swag: false, isHidden: false },
-                { name: "Loke", text: "BOOY GOT THAT VIRUS", imgSrc: "../src/assets/lokeoberg.png", swag: false, isHidden: false },
-                { name: "Hjalmar", text: "Hj", imgSrc: "../src/assets/vue.svg", swag: false, isHidden: false },
-                { name: "Alexander", text: "Al", imgSrc: "../src/assets/alex.jpg", swag: true, isHidden: false },
-                { name: "Leo", text: "Le", imgSrc: "../src/assets/leooberg.png", swag: false, isHidden: false },
-                { name: "Loke", text: "BOOY GOT THAT VIRUS", imgSrc: "../src/assets/lokeoberg.png", swag: true, isHidden: false },
-                { name: "Hjalmar", text: "Hj", imgSrc: "../src/assets/vue.svg", swag: false, isHidden: false },
-                { name: "Alexander", text: "Al", imgSrc: "../src/assets/alex.jpg", swag: true, isHidden: false },
+                // remove contents later
+                { name: "Leo", text: "Le", image: "leooberg.png", swag: false, isHidden: false },
+                { name: "Loke", text: "BOOY GOT THAT VIRUS", image: "lokeoberg.png", swag: false, isHidden: false },
+                { name: "Hjalmar", text: "Hj", image: "vue.svg", swag: false, isHidden: false },
+                { name: "Alexander", text: "Al", image: "alex.jpg", swag: true, isHidden: false },
+                { name: "Leo", text: "Le", image: "leooberg.png", swag: false, isHidden: false },
+                { name: "Loke", text: "BOOY GOT THAT VIRUS", image: "lokeoberg.png", swag: true, isHidden: false },
+                { name: "Hjalmar", text: "Hj", image: "vue.svg", swag: false, isHidden: false },
+                { name: "Alexander", text: "Al", image: "alex.jpg", swag: true, isHidden: false },
             ],
             questions: [
                 { text: "har han swag?", command: "characters.map(character => { if (!character.swag) { character.isHidden = true } })" },
@@ -75,6 +76,12 @@ export default {
         },
         funcSoulBrother() { }
     },
+    mounted() {
+        // this seems to be the best way to get data from the database, as async+await or .then doesn't work in the data() function
+        getCharactersFromDatabase().then((characters) => {
+            this.characters = characters;
+        });
+    }
 };
 </script>
 
