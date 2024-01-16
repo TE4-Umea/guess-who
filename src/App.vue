@@ -86,73 +86,6 @@ export default {
 </script>
 
 <style>
-#searchField {
-    text-align: center;
-}
-
-#myInput {
-    background-image: url('https://img.uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png');
-    /* Add a search icon to input */
-    background-position: 10px 12px;
-    /* Position the search icon */
-    background-repeat: no-repeat;
-    /* Do not repeat the icon image */
-    background-size: 20px;
-    /* Full-width */
-    font-size: 16px;
-    /* Increase font-size */
-    padding: 12px 20px 12px 40px;
-    /* Add some padding */
-    border: 1px solid #ddd;
-    /* Add a grey border */
-    /*margin-bottom: 12px; /* Add some space below the input */
-    width: 25%;
-}
-
-#myUL {
-    /* Remove default list styling */
-    width: 28.4%;
-    list-style-type: none;
-    padding: 0px;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#myUL li a {
-    border: 1px solid #ddd;
-    /* Add a border to all links */
-    margin-top: -1px;
-    /* Prevent double borders */
-    /* Grey background color */
-    padding: 12px;
-    /* Add some padding */
-    padding-right: 50px;
-    text-decoration: none;
-    /*Seth was here*/
-    /* Remove default text underline */
-    font-size: 18px;
-    /* Increase the font-size */
-    display: block;
-    /* Make it into a block element to fill the whole list */
-    size: 100%;
-}
-
-#myUL li:hover {
-    background-color: #505050;
-    /* Add a hover effect to all links, except for headers */
-}
-
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-}
-
-a:hover {
-    color: #535bf2;
-}
-
 .grid {
     width: 92vw;
     margin-left: auto;
@@ -181,5 +114,63 @@ a:hover {
 
 .hiddenCard {
     height: 100vw;
+}
+
+#searchField {
+    text-align: center;
+}
+
+#myInput {
+    background-image: url('https://img.uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+
+    font-size: 16px;
+
+    border: 1px solid #ddd;
+
+    padding: 12px 20px 12px 40px;
+    width: 25%;
+}
+
+#myUL {
+    width: 28.4%;
+
+    list-style-type: none;
+
+    padding: 0px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+
+    margin-top: -1px;
+    padding: 12px;
+    padding-right: 50px;
+
+    text-decoration: none;
+    font-size: 18px;
+    /*Seth was here*/
+
+    display: block;
+    size: 100%;
+}
+
+#myUL li:hover {
+    background-color: #505050;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
 }
 </style>
