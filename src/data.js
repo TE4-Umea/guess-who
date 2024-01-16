@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 export async function getCharactersFromDatabase() {
     // const characters = await prisma.character.findMany({})
-    const charactersAAAA = [
+    const charactersTemp = [
         {
             id: 1,
             name: 'Gandalf the gray',
@@ -203,7 +203,7 @@ export async function getCharactersFromDatabase() {
     ]
 
     // console.log(characters)
-    return charactersAAAA
+    return charactersTemp
 }
 
 // getCharactersFromDatabase()

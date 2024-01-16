@@ -2,7 +2,7 @@
     <div class="grid">
         <article v-for="(character, index) in characters">
             <div v-on:click="character.isHidden = !character.isHidden" v-if="!character.isHidden">
-                <img :src="character.imgSrc">
+                <img :src="character.image">
                 <p>{{ character.name }}</p>
                 <p>{{ character.text }}</p>
             </div>
@@ -31,14 +31,14 @@ export default {
         return {
             characters: [
                 // remove contents later
-                { name: "Leo", text: "Le", imgSrc: "../src/assets/leooberg.png", swag: false, isHidden: false },
-                { name: "Loke", text: "BOOY GOT THAT VIRUS", imgSrc: "../src/assets/lokeoberg.png", swag: false, isHidden: false },
-                { name: "Hjalmar", text: "Hj", imgSrc: "../src/assets/vue.svg", swag: false, isHidden: false },
-                { name: "Alexander", text: "Al", imgSrc: "../src/assets/alex.jpg", swag: true, isHidden: false },
-                { name: "Leo", text: "Le", imgSrc: "../src/assets/leooberg.png", swag: false, isHidden: false },
-                { name: "Loke", text: "BOOY GOT THAT VIRUS", imgSrc: "../src/assets/lokeoberg.png", swag: true, isHidden: false },
-                { name: "Hjalmar", text: "Hj", imgSrc: "../src/assets/vue.svg", swag: false, isHidden: false },
-                { name: "Alexander", text: "Al", imgSrc: "../src/assets/alex.jpg", swag: true, isHidden: false },
+                { name: "Leo", text: "Le", image: "leooberg.png", swag: false, isHidden: false },
+                { name: "Loke", text: "BOOY GOT THAT VIRUS", image: "lokeoberg.png", swag: false, isHidden: false },
+                { name: "Hjalmar", text: "Hj", image: "vue.svg", swag: false, isHidden: false },
+                { name: "Alexander", text: "Al", image: "alex.jpg", swag: true, isHidden: false },
+                { name: "Leo", text: "Le", image: "leooberg.png", swag: false, isHidden: false },
+                { name: "Loke", text: "BOOY GOT THAT VIRUS", image: "lokeoberg.png", swag: true, isHidden: false },
+                { name: "Hjalmar", text: "Hj", image: "vue.svg", swag: false, isHidden: false },
+                { name: "Alexander", text: "Al", image: "alex.jpg", swag: true, isHidden: false },
             ],
             questions: [
                 { text: "har han swag?", command: "characters.map(character => { if (!character.swag) { character.isHidden = true } })" },
