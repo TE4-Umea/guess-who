@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getCharactersFromDatabase } from "./data.js"
+import { getCharactersFromDatabase } from "./data.js";
 
 export default {
     data() {
@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         valert(at) {
-            alert(at)
+            alert(at);
         },
         search() {
             // Declare variables
@@ -72,7 +72,7 @@ export default {
             }
         },
         runScript(script) {
-            eval(script)
+            eval(script);
         },
         funcSoulBrother() { }
     },
