@@ -10,18 +10,17 @@
             </div>
         </article>
     </div>
-    
+
     <div id="searchField">
-        <input type="text" id="myInput" onkeyup="search()" placeholder="Search for questions.." />
+        <input type="text" id="myInput" onkeyup="() => { search() }" placeholder="Search for questions.." />
         <ul id="myUL">
             <li v-for="(question, index) in  questions " :key="index" v-on:click="">
-                <a v-on:click="() => { runScript(question.command) }">
-                    <p>{{ question.text }}</p>
+                <a v-on:click="() => { askQuestion(index, characters) }">
+                    {{ question.text }}
                 </a>
             </li>
         </ul>
     </div>
-
 </template>
 
 <script>
@@ -40,14 +39,18 @@ export default {
                 { name: "Alexander", text: "Al", imgSrc: "../src/assets/alex.jpg", swag: true, isHidden: false },
             ],
             questions: [
-                { text: "har han swag?", command: "characters.map(character => { if (!character.swag) { character.isHidden = true } })" },
-                { text: "innehåller hans namn L?", command: "characters.map(character => { character.isHidden = !character.isHidden })" },
+                { text: "har han swag?" },
+                { text: "innehåller hans namn L?" },
             ]
         };
     },
     methods: {
-        valert(at) {
-            alert(at)
+        askQuestion(index, characters) {
+            if (index == 0) {
+                characters.map(character => { if (!character.swag) { character.isHidden = true } })
+            } else {
+                characters.map(character => { character.isHidden = !character.isHidden })
+            }
         },
         search() {
             // Declare variables
